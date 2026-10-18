@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090d1a" />
+    <title>TaskPilot — Turn intent into momentum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#top" aria-label="TaskPilot home"><span class="brand-mark"><i></i><i></i><i></i></span><span>task<span>pilot</span></span></a>
+        <div class="workspace-label">WORKSPACE <span>⌄</span></div>
+        <nav class="main-nav" aria-label="Primary navigation">
+          <a class="nav-item active" href="#dashboard"><span class="nav-icon">◈</span> Dashboard</a>
+          <a class="nav-item" href="#workflows"><span class="nav-icon">▤</span> Workflows <b id="workflowCount">0</b></a>
+          <a class="nav-item" href="#templates"><span class="nav-icon">◇</span> Templates</a>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="focus-card"><span class="tiny-orb"></span><p>Focus mode</p><strong>Make progress<br />feel effortless.</strong><button id="focusToggle" aria-pressed="false">Enable <span>→</span></button></div>
+          <a class="nav-item muted" href="#settings"><span class="nav-icon">⚙</span> Settings</a>
+          <div class="profile"><div class="avatar">AM</div><div><strong>Alex Morgan</strong><small>Personal space</small></div><span class="more">•••</span></div>
+        </div>
+      </aside>
+
+      <main class="main" id="top">
+        <header class="topbar"><div class="breadcrumbs"><span>Workspace</span><b>/</b><strong>Dashboard</strong></div><div class="top-actions"><button class="icon-button" aria-label="Search">⌕</button><button class="icon-button notification" aria-label="Notifications">♧<i></i></button><div class="date-pill"><span class="sun">☼</span><span id="currentDate">Tuesday, October 22</span></div></div></header>
+        <section class="welcome" id="dashboard"><div><p class="eyebrow">TUESDAY, OCTOBER 22 <span class="status-dot"></span> ALL SYSTEMS GO</p><h1>Good morning, Alex <span>✦</span></h1><p class="welcome-copy">What are we making happen today?</p></div><div class="streak"><span class="streak-icon">✺</span><div><strong>4 day streak</strong><small>Keep the momentum going</small></div></div></section>
+
+        <section class="composer glass-card" aria-labelledby="composerTitle">
+          <div class="composer-copy"><span class="step-number">01</span><div><h2 id="composerTitle">What do you want to get done?</h2><p>Describe an outcome and we’ll map the path forward.</p></div></div>
+          <div class="input-wrap"><textarea id="taskInput" rows="2" placeholder="e.g. Launch the Q4 marketing campaign..." aria-label="Describe a task"></textarea><span class="sparkle">✦</span></div>
+          <div class="composer-footer"><div class="suggestions"><span>Try:</span><button class="suggestion" data-task="Plan a team offsite">Plan a team offsite</button><button class="suggestion" data-task="Publish my portfolio website">Publish my portfolio website</button><button class="suggestion" data-task="Prepare for a product launch">Prepare for a product launch</button></div><button class="primary-button" id="generateBtn">Generate workflow <span>↗</span></button></div>
+          <p class="input-error" id="inputError" role="alert"></p>
+        </section>
+
+        <section class="content-grid" id="workflows">
+          <div class="recent-column"><div class="section-heading"><div><p class="eyebrow">YOUR SPACE</p><h2>Recent workflows</h2></div><button class="text-button" id="clearAllBtn">Clear all <span>→</span></button></div><div id="workflowList" class="workflow-list"></div><div id="emptyWorkflows" class="empty-state"><div class="empty-illustration">⌁</div><h3>Your next win starts here.</h3><p>Generate a workflow above and your plan will land here.</p></div></div>
+          <div class="detail-column"><div class="section-heading"><div><p class="eyebrow">IN PROGRESS</p><h2>Current focus</h2></div><span class="live-label"><i></i> LIVE</span></div><article id="detailCard" class="detail-card glass-card"></article></div>
+        </section>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
