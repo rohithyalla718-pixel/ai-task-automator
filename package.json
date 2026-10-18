@@ -4,6 +4,6 @@
   "private": true,
   "description": "A deterministic, local-first workflow dashboard.",
   "type": "module",
-  "scripts": { "start": "node server.js", "test": "node --test", "check": "node --check app.js && node --check server.js" },
+  "scripts": { "start": "node server.js", "test": "node --test", "check": "node --check app.js && node --check server.js && node --check src/workflow.js" },
   "engines": { "node": "22.14.0" }
 }
